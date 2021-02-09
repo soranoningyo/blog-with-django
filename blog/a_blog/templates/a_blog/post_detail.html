@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{post.post_author.profile.img.url}}"/>
+    <div class="media-body">
+      <div class="article-metadata">
+        <b>by </b><a class="mr-2" href="{% url 'user-posts' post.post_author.username %}">{{ post.post_author }}</a><small>in</small>
+        <small class="text-muted">{{ post.post_publish_date }}</small>
+      </div>
+      <div class="article_body ml-3 mt-2">
+        <h3 class="article-title">{{ post.post_title }}</h3>
+        <p class="article-content ml-1">{{ post.post_content }}</p>
+        {% if post.post_author == user %}
+          <a class="btn btn-primary" href="{% url 'post-updater' post.post_title %}">update</a>
+          <a class="btn btn-danger" href="{% url 'post-deleter' post.post_title %}">delete</a>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+{% endblock content %}

@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="alert alert-dark fade show" role="alert">
+    you are logged out 😭!<br>
+    <b class="d-inline-block ml-2 mt-2">
+      <a href="{% url 'signIn' %}"> sign In </a>
+    </b> please!😭
+  </div>
+{% endblock content %}
